@@ -1,0 +1,12 @@
+{
+  "name": "hold-plain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve ./ -p 800",
+    "deploy": "pm2 start npm --name 'hold-plain' -- start"
+  },
+  "author": "",
+  "license": "ISC"
+}
