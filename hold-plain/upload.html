@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hold Plain HTML</title>
+  <script src="/vcdn/axios/1.4.0/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>:)</h1>
+  <div id="label">Upload</div>
+  <div id="content"></div>
+  <form>
+    <input type="file" name="file" id="file">
+    <input type="button" value="upload" id="upload-button">
+  </form>
+  <script src="/script/setup.js"></script>
+  <script>
+    window.addEventListener('load', () => {
+      document.getElementById('upload-button').addEventListener('click', async (event) => {
+        const file = document.getElementById('file').files[0]
+        const formData = new FormData()
+        formData.append('file', file)
+        await api.post('/x/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        document.getElementById('label').innerText = 'remote'
+        document.getElementById('content').innerText = res.data
+      })
+    })
+  </script>
+</body>
+
+</html>
