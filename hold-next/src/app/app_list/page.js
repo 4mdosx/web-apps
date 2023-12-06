@@ -17,7 +17,7 @@ export default async function ECMAVersionPage() {
     <main className="flex min-h-screen flex-col items-left justify-start p-4">
       <h1>Apps List</h1>
       {
-        apps.map((app) => <a href={`/apps/${app}`} className='hover:underline text-blue-500'>{appNameFormat(app)}</a>)
+        apps.map((app) => <a key={app} href={`/apps/${app}`} className='hover:underline text-blue-500'>{appNameFormat(app)}</a>)
       }
     </main>
   )
